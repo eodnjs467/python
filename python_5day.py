@@ -42,4 +42,8 @@ dataset = ['Braund, Mr. Owen Harris',
            'Todoroff, Mr. Lalio']
 m_count = 0
 for data in dataset :
-    print(data)
+    for index in range(len(data)):
+        if data[index] == "M":
+            m_count = m_count+1
+
+print(m_count)
