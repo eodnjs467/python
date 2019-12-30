@@ -84,9 +84,33 @@ data = [1, 2, 3, 4, 5]
 random.shuffle(data)
 data
 
+#webbrowser는 자신의 시스템에서 사용하는 기본 웹 브라우저를 자동으로 실행하는 모듈이다.
+import webbrowser
+webbrowser.open("http://google.com")
+webbrowser.open_new("http://google.com")
 
+#스레드를 다루는 threading 모듈
+import time
+import threading
 
+def long_task():
+    for i in range(5):
+        time.sleep(1)
+        print("working:%s\n" % i)
+print("Start")
 
+threads = []
+for i in range(5):
+    t = threading.Thread(target=long_task)
+    threads.append(t)
+
+for t in threads:
+    t.start()
+
+for t in threads:
+    t.join()
+
+print("End")
 
 
 
@@ -143,3 +167,14 @@ round(17/3, 4)
 
 
 #Q10
+
+
+#Q11
+
+
+#Q12
+import time
+time.strftime()
+
+
+#Q13
