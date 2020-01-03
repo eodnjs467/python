@@ -105,3 +105,26 @@ while node.next:
     print(node.data)
     node = node.next
 print(node.data)
+
+
+
+
+###############데이터를 중간에 삽입해보자 ....
+
+node3 = Node(3.5)
+node = head
+search = True
+while search:
+    if node.data == 3:
+        search = False
+    else:
+        node = node.next
+node_next = node.next
+node.next = node3
+node3.next = node_next
+
+node = head
+while node.next:
+    print(node.data)
+    node = node.next
+print(node.data)
