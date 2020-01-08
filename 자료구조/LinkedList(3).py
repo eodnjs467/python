@@ -120,4 +120,4 @@ node_3 = double_linked_list.search_from_head(3)
 
 double_linked_list.insert_before(1.5,2)
 double_linked_list.desc()
-## 복잡하구먼 ... . . .  반복이나 하자 . . . . 
+## 복잡하구먼 ... . . .  반복이나 하자 . . . .
