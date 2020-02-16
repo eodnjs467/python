@@ -3,7 +3,7 @@
 
 S, tmp = input(), ""
 
-ck = False
+ck = False          # < 열려있는지 확인
 
 for i in S:
     if i == ' ':
