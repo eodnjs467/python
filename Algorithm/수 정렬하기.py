@@ -1,4 +1,4 @@
-#https://www.acmicpc.net/problem/2750
+#https://www.acmicpc.net/problem/2750a
 #왜 파이썬3으로는 시간초과 나오고, pypy3는 맞다고 나옴 ?
 
 num = []
