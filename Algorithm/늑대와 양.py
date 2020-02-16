@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/16956
+# https://www.acmicpc.net/problem/16956s
 
 R, C =map(int, input().split())
 M = [list(input()) for i in range(R)]

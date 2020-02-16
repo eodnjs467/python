@@ -1,6 +1,6 @@
 # https://www.acmicpc.net/problem/2748
 
-n = int(input())
+n = int(input())s
 f = [0, 1]
 
 for i in range(2, n+1):
