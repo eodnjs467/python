@@ -8,7 +8,7 @@ def fibonacci(n):
             cnt_1.append(cnt_1[i-1] + cnt_1[i-2])
     print(cnt_0[n], cnt_1[n])
     print(cnt_0[n], end=' ')
-    print(cnt_1[n])s
+    print(cnt_1[n])
     # print(cnt_0[n] + cnt_1[n], end=' ')
     # print('{} {}'.format(cnt_0[n], cnt_1[n]))
 
