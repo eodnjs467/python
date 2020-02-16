@@ -22,7 +22,7 @@ for i in S:
     else:
         if ck:
             print(i, end="")
-        else:a
+        else:
             tmp += i
 
 print(tmp[::-1], end="")
