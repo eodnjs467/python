@@ -1,4 +1,4 @@
-
+# 1번째부터 끝까지 비교
 def bubblesort(data):
     for i in range(len(data)-1):                                    # 데이터 길이 -1 만큼 양옆 체크 , 턴 //n번 만큼 반복 안에서
         ck = False
