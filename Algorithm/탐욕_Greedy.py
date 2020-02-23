@@ -10,3 +10,14 @@ def coin(N, coin_lst):
     return total_coin
 
 coin(4720, coin_lst)
+
+
+N = 1000 - int(input())
+coin_lst = [500, 100, 50, 10, 5, 1]
+def coin(N, coin_lst):
+    total_coin = 0
+    for coin in coin_lst:
+        total_coin += N//coin
+        N -= (N//coin)*coin
+    return total_coin
+coin(N, coin_lst)
