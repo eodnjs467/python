@@ -37,14 +37,14 @@ def solution(priorities, location):
                 c+=1
                 answer+=1
                 if i == location:
+                    print(answer)
                     break
         else:
             continue
         break
     return answer
-priorities = [2,1,3,2]
-location = 2
-solution2(priorities, location)
-if priorities.pop() == 2:
-    print(1)
-priorities
+
+for i in range(int(input())):
+    num, location = list(map(int, input().split()))
+    priorities = list(map(int, input().split()))
+    solution(priorities, location)

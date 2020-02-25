@@ -1,16 +1,3 @@
-N, M = list(map(int, input().split()))
-
-A = list(map(int, input().split()))
-result = 0
-for i in range(len(A)):
-    for j in range(i+1, len(A)):
-        for k in range(j+1, len(A)):
-            sum = A[i] + A[j] + A[k]
-            if sum <= M:
-                result = max(result, sum)
-print(result)
-
-
 import collections
 TC = int(input())
 
@@ -31,6 +18,32 @@ for i in range(TC):
             deq.rotate(-1)
 
 
+
 # 맥스 값이랑 [0][0] == 같으면 카운트 +1  하고 빼줄건데 그전에 카운트 +1 후 만약 값이 찾는 값이라면 카운트 출력
 # 아닌경우 그냥 빼버려 ㅇㅇ 같지도 않으면 걍 돌려
 # 조건문의 경우 참 거짓 경우 미리 적어놓고 그 안에 조건이 또 필요하면 그 후에 적자
+
+
+import collections
+
+def printer_q(deq, m):
+    cnt = 0
+    while True:
+        if deq[0][0] == max(deq, key=lambda x: x[0])[0]:
+            cnt += 1
+            if deq[0][1] == m:
+                print(cnt)
+                break
+            else:
+                deq.popleft()
+        else:
+            deq.rotate(-1)
+
+
+TC = int(input())
+
+for i in range(TC):
+    n, m = list(map(int, input().split()))
+    queue = list(map(int, input().split()))
+    deq = collections.deque([(i, idx) for idx, i in enumerate(queue)])
+    printer_q(deq, m)
