@@ -9,8 +9,6 @@ for _ in range(M):
     matrix[x][y] = 1
     matrix[y][x] = 1
 
-dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
-
 def dfs(matrix, V):
     stack = [V]
     visit = []
@@ -22,6 +20,7 @@ def dfs(matrix, V):
         for i in range(len(matrix)):
             if matrix[tmp][i] and i not in stack and i not in visit:
                 stack.append(i)
+                break               # 꼼수 ...
     return visit
 
 def bfs(matrix, start):
@@ -37,8 +36,8 @@ def bfs(matrix, start):
                 queue.append(i)
     return visit
 
-print(dfs(matrix, V))
-print(bfs(matrix, V))
+print(dfs(*matrix, V))
+print(bfs(*matrix, V))
 
 
 
