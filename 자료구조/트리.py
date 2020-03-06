@@ -9,7 +9,7 @@ class Node:
 
 class NodeMgmt:
     def __init__(self, node):
-        self.head = head
+        self.head = node
 
     def insert(self, value):
         self.current_node = self.head
