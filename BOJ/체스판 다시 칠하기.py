@@ -1,4 +1,7 @@
 # https://www.acmicpc.net/problem/1018
+# https://claude-u.tistory.com/134 참고했음
+# https://yeol2.tistory.com/45 이게 더 좋아보이니 나중에 배워보도록 하자
+
 
 n, m = map(int, input().split())
 board = [list(map(str, list(input()))) for _ in range(n)]
