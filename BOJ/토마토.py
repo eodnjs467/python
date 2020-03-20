@@ -1,25 +1,38 @@
 # https://www.acmicpc.net/problem/7576
+# 1. 먼저 익은 토마토는 queue 에 넣는다
+# 2. queue 안의 토마토를 앞에서부터 pop
+# 3. 뽑아낸 토마토의 상하 좌우에 안익은 토마토가 있으면 현재까지 토마토 날에 +1
+# 4. while 문을 모두 돈 뒤 0이 있으면 -1 출력, 없다면 배열내의 최댓값 -1
 
-# 1 : 익은 토마토, 0 : 익지않은 토마토, -1 : 토마토x
-# 전부 0 이거나 -1이 막고있으면 익지못함
 
-m, n = map(int, input().split())
-matrix = [list(input()) for _ in range(n)]
-test_matrix = [[0 for _ in range(m)]for _ in range(n)]
-dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
-cnt = 0
+import sys, copy
+from collections import deque
 
+m, n = map(int, sys.stdin.readline().split())
+matrix = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+matrix_ck = copy.deepcopy(matrix)
+queue = deque()
 for i in range(n):
     for j in range(m):
-        for w in range(4):
-            ii, jj = dx[w]+i, dy[w]+j
-            if matrix[i][j]==1 and matrix[ii][jj]!=-1:
-                matrix[ii][jj] = 1
-                # test_matrix[ii][jj] = 1
-                cnt+=1
-            elif matrix[i][j]==-1:
-                if -1 in matrix[ii][jj]:
-                    print(0)
-                    break
-                continue
-print(cnt)
+        if matrix[i][j] ==1:
+            queue.append([i, j])
+
+while queue:
+    [i, j] = queue.popleft()
+    dx, dy = [0, 1, 0, -1], [1, 0, -1, 0]
+    for w in range(4):
+        xx, yy = dx[w]+i, dy[w]+j
+        if (0 <= xx < n) and (0 <= yy < m) and matrix_ck[xx][yy] == 0:
+            matrix_ck[xx][yy] = matrix_ck[i][j] + 1
+            queue.append([xx, yy])
+answer = True
+for row in matrix_ck:
+    if 0 in row:
+        print(-1)
+        answer = False
+        break
+if answer:
+    min_days = 0
+    for row in matrix_ck:
+        min_days = max(min_days, max(row))
+    print(min_days-1)
