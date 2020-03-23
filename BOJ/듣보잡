@@ -1,0 +1,13 @@
+# https://www.acmicpc.net/problem/1764
+
+import sys
+
+n, m = map(int, sys.stdin.readline().split())
+
+name = [sys.stdin.readline() for _ in range(n)]
+name2 = [sys.stdin.readline() for _ in range(m)]
+
+ans = sorted(set(name) & set(name2))
+
+print(len(ans))
+for i in ans: print(i, end='')
