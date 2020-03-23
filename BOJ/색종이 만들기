@@ -1,0 +1,22 @@
+# https://www.acmicpc.net/problem/2630
+
+import sys, copy
+
+def split_matrix(matrix_ck, medium):
+    medium //= 2
+    if sum(matrix_ck) == 0 or sum(matrix_ck) == medium**2:
+        return matrix_ck
+    else:
+        split1 = split_matrix(matrix_ck[:medium][:medium])
+        split2 = split_matrix(matrix_ck[:medium][medium:])
+        split3 = split_matrix(matrix_ck[medium:][:medium])
+        split4 = split_matrix(matrix_ck[medium:][medium:])
+
+
+
+
+n = int(sys.stdin.readline())
+
+matrix = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+matrix_ck = copy.deepcopy(matrix)
+medium = n//2
