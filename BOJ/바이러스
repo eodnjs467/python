@@ -1,0 +1,27 @@
+import sys
+
+com = int(sys.stdin.readline())
+com_link = int(sys.stdin.readline())
+
+virus_map = [[0 for _ in range(com+1)] for _ in range(com+1)]
+
+for _ in range(com_link):
+    x, y = map(int, sys.stdin.readline().split())
+    virus_map[x][y] = 1
+    virus_map[y][x] = 1
+
+def bfs(virus_map, start):
+    queue = [start]
+    visited = []
+
+    while queue:
+        temp = queue.pop()
+        visited.append(temp)
+
+        for i in range(len(virus_map)):
+            if virus_map[temp][i] and i not in visited and i not in queue:
+                # print(queue, temp)
+                queue.append(i)
+    return len(visited)-1
+
+print(bfs(virus_map, 1))
